@@ -36,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => RequestPerssionPageWidget(),
+      errorBuilder: (context, state) => PlaySoundPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => RequestPerssionPageWidget(),
+          builder: (context, _) => PlaySoundPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -107,6 +107,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'RequestPerssionPage',
           path: '/requestPerssionPage',
           builder: (context, params) => RequestPerssionPageWidget(),
+        ),
+        FFRoute(
+          name: 'PlaySoundPage',
+          path: '/playSoundPage',
+          builder: (context, params) => PlaySoundPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

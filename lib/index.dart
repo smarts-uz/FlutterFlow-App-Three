@@ -24,3 +24,5 @@ export '/actions/alert_notifications/main_alert_notification/main_alert_notifica
     show MainAlertNotificationWidget;
 export '/actions/alert_notifications/request_perssion_page/request_perssion_page_widget.dart'
     show RequestPerssionPageWidget;
+export '/actions/alert_notifications/play_sound_page/play_sound_page_widget.dart'
+    show PlaySoundPageWidget;
