@@ -4,26 +4,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'main_utililies_page_model.dart';
-export 'main_utililies_page_model.dart';
+import 'mode_page_model.dart';
+export 'mode_page_model.dart';
 
-class MainUtililiesPageWidget extends StatefulWidget {
-  const MainUtililiesPageWidget({Key? key}) : super(key: key);
+class ModePageWidget extends StatefulWidget {
+  const ModePageWidget({Key? key}) : super(key: key);
 
   @override
-  _MainUtililiesPageWidgetState createState() =>
-      _MainUtililiesPageWidgetState();
+  _ModePageWidgetState createState() => _ModePageWidgetState();
 }
 
-class _MainUtililiesPageWidgetState extends State<MainUtililiesPageWidget> {
-  late MainUtililiesPageModel _model;
+class _ModePageWidgetState extends State<ModePageWidget> {
+  late ModePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MainUtililiesPageModel());
+    _model = createModel(context, () => ModePageModel());
   }
 
   @override
@@ -48,7 +47,7 @@ class _MainUtililiesPageWidgetState extends State<MainUtililiesPageWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Utililies Action',
+                'Mode',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       color: Colors.white,
@@ -82,41 +81,18 @@ class _MainUtililiesPageWidgetState extends State<MainUtililiesPageWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('WaitPage');
-                  },
-                  text: 'WaitPage',
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed('PeriodicPage');
+                      setDarkModeSetting(context, ThemeMode.system);
                     },
-                    text: 'Periodic',
+                    text: 'System ',
                     options: FFButtonOptions(
+                      width: double.infinity,
                       height: 40.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -135,16 +111,17 @@ class _MainUtililiesPageWidgetState extends State<MainUtililiesPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed('UploadPhotoVideoPage');
+                      setDarkModeSetting(context, ThemeMode.light);
                     },
-                    text: 'UploadedMedia',
+                    text: 'Light',
                     options: FFButtonOptions(
+                      width: double.infinity,
                       height: 40.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -163,16 +140,17 @@ class _MainUtililiesPageWidgetState extends State<MainUtililiesPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed('ModePage');
+                      setDarkModeSetting(context, ThemeMode.dark);
                     },
-                    text: 'Mode',
+                    text: 'Dark',
                     options: FFButtonOptions(
+                      width: double.infinity,
                       height: 40.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,

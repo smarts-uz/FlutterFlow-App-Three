@@ -55,10 +55,19 @@ class _PeriodicPageWidgetState extends State<PeriodicPageWidget> {
                       fontSize: 22.0,
                     ),
               ),
-              Icon(
-                Icons.arrow_back,
-                color: FlutterFlowTheme.of(context).primaryBackground,
-                size: 24.0,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.safePop();
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  size: 24.0,
+                ),
               ),
             ],
           ),
@@ -77,8 +86,11 @@ class _PeriodicPageWidgetState extends State<PeriodicPageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Text(
                     valueOrDefault<String>(
-                      _model.instantTimer.tick.toString(),
-                      '0',
+                      formatNumber(
+                        _model.instantTimer.tick,
+                        formatType: FormatType.percent,
+                      ),
+                      '10',
                     ),
                     style: FlutterFlowTheme.of(context).headlineLarge,
                   ),

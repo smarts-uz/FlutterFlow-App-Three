@@ -10,3 +10,5 @@ export '/actions/utilities_actions/main_utililies_page/main_utililies_page_widge
     show MainUtililiesPageWidget;
 export '/actions/utilities_actions/periodic_page/periodic_page_widget.dart'
     show PeriodicPageWidget;
+export '/actions/utilities_actions/mode_page/mode_page_widget.dart'
+    show ModePageWidget;
