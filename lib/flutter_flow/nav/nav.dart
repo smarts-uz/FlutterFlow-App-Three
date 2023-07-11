@@ -66,6 +66,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MainUtililiesPage',
           path: '/mainUtililiesPage',
           builder: (context, params) => MainUtililiesPageWidget(),
+        ),
+        FFRoute(
+          name: 'PeriodicPage',
+          path: '/periodicPage',
+          builder: (context, params) => PeriodicPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
