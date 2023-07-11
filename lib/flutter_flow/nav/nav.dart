@@ -36,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => HapticPageWidget(),
+      errorBuilder: (context, state) => RequestPerssionPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HapticPageWidget(),
+          builder: (context, _) => RequestPerssionPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -102,6 +102,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MainAlertNotification',
           path: '/mainAlertNotification',
           builder: (context, params) => MainAlertNotificationWidget(),
+        ),
+        FFRoute(
+          name: 'RequestPerssionPage',
+          path: '/requestPerssionPage',
+          builder: (context, params) => RequestPerssionPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
