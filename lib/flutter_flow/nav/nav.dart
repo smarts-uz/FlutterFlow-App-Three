@@ -36,12 +36,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => AudioRecordPageWidget(),
+      errorBuilder: (context, state) => AlertDissmisShowSnackWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => AudioRecordPageWidget(),
+          builder: (context, _) => AlertDissmisShowSnackWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -87,6 +87,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AudioRecordPage',
           path: '/audioRecordPage',
           builder: (context, params) => AudioRecordPageWidget(),
+        ),
+        FFRoute(
+          name: 'AlertDissmisShowSnack',
+          path: '/alertDissmisShowSnack',
+          builder: (context, params) => AlertDissmisShowSnackWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

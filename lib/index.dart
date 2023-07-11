@@ -16,3 +16,5 @@ export '/actions/utilities_actions/copy_page/copy_page_widget.dart'
     show CopyPageWidget;
 export '/actions/utilities_actions/audio_record_page/audio_record_page_widget.dart'
     show AudioRecordPageWidget;
+export '/actions/utilities_actions/alert_dissmis_show_snack/alert_dissmis_show_snack_widget.dart'
+    show AlertDissmisShowSnackWidget;
