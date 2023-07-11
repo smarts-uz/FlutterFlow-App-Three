@@ -16,5 +16,9 @@ export '/actions/utilities_actions/copy_page/copy_page_widget.dart'
     show CopyPageWidget;
 export '/actions/utilities_actions/audio_record_page/audio_record_page_widget.dart'
     show AudioRecordPageWidget;
-export '/actions/utilities_actions/alert_dissmis_show_snack/alert_dissmis_show_snack_widget.dart'
+export '/actions/alert_notifications/alert_dissmis_show_snack/alert_dissmis_show_snack_widget.dart'
     show AlertDissmisShowSnackWidget;
+export '/actions/alert_notifications/haptic_page/haptic_page_widget.dart'
+    show HapticPageWidget;
+export '/actions/alert_notifications/main_alert_notification/main_alert_notification_widget.dart'
+    show MainAlertNotificationWidget;

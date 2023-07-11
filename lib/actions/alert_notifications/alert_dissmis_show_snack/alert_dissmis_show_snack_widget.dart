@@ -1,4 +1,4 @@
-import '/components/examle_component_widget.dart';
+import '/actions/utilities_actions/examle_component/examle_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -63,13 +63,33 @@ class _AlertDissmisShowSnackWidgetState
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
-          title: Text(
-            'Alert, Dissmis, ShowSnackbar',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Alert, Dissmis, ShowSnackbar',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Outfit',
+                      color: Colors.white,
+                      fontSize: 22.0,
+                    ),
+              ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.safePop();
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  size: 24.0,
                 ),
+              ),
+            ],
           ),
           actions: [],
           centerTitle: false,

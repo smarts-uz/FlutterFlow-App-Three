@@ -4,25 +4,27 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
+import 'main_alert_notification_model.dart';
+export 'main_alert_notification_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+class MainAlertNotificationWidget extends StatefulWidget {
+  const MainAlertNotificationWidget({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _MainAlertNotificationWidgetState createState() =>
+      _MainAlertNotificationWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
-  late HomePageModel _model;
+class _MainAlertNotificationWidgetState
+    extends State<MainAlertNotificationWidget> {
+  late MainAlertNotificationModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageModel());
+    _model = createModel(context, () => MainAlertNotificationModel());
   }
 
   @override
@@ -42,13 +44,33 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
-          title: Text(
-            'HomePage',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Alert Notifications',
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                      fontFamily: 'Outfit',
+                      color: Colors.white,
+                      fontSize: 22.0,
+                    ),
+              ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.safePop();
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  size: 24.0,
                 ),
+              ),
+            ],
           ),
           actions: [],
           centerTitle: false,
@@ -63,9 +85,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               children: [
                 FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('SharePage');
+                    context.pushNamed('AlertDissmisShowSnack');
                   },
-                  text: 'ShareActions',
+                  text: 'AlertDissmisSnackBar',
                   options: FFButtonOptions(
                     width: 200.0,
                     height: 40.0,
@@ -89,38 +111,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed('MainUtililiesPage');
+                      context.pushNamed('HapticPage');
                     },
-                    text: 'UitiliesAction',
-                    options: FFButtonOptions(
-                      width: 200.0,
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
-                      elevation: 3.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed('MainAlertNotification');
-                    },
-                    text: 'AlertNotification',
+                    text: 'Haptic Feedback',
                     options: FFButtonOptions(
                       width: 200.0,
                       height: 40.0,
