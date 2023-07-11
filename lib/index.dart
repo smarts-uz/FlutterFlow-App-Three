@@ -14,3 +14,5 @@ export '/actions/utilities_actions/mode_page/mode_page_widget.dart'
     show ModePageWidget;
 export '/actions/utilities_actions/copy_page/copy_page_widget.dart'
     show CopyPageWidget;
+export '/actions/utilities_actions/audio_record_page/audio_record_page_widget.dart'
+    show AudioRecordPageWidget;
