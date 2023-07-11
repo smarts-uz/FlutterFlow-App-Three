@@ -1,0 +1,6 @@
+package com.mycompany.flutterflowappthree
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
