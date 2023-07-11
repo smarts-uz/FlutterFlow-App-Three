@@ -76,6 +76,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ModePage',
           path: '/modePage',
           builder: (context, params) => ModePageWidget(),
+        ),
+        FFRoute(
+          name: 'CopyPage',
+          path: '/copyPage',
+          builder: (context, params) => CopyPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

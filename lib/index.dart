@@ -12,3 +12,5 @@ export '/actions/utilities_actions/periodic_page/periodic_page_widget.dart'
     show PeriodicPageWidget;
 export '/actions/utilities_actions/mode_page/mode_page_widget.dart'
     show ModePageWidget;
+export '/actions/utilities_actions/copy_page/copy_page_widget.dart'
+    show CopyPageWidget;
