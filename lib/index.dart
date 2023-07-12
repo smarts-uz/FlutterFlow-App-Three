@@ -39,3 +39,5 @@ export '/actions/u_i_actions/validate_form_page/validate_form_page_widget.dart'
     show ValidateFormPageWidget;
 export '/actions/u_i_actions/clear_text_field_page/clear_text_field_page_widget.dart'
     show ClearTextFieldPageWidget;
+export '/actions/u_i_actions/scroll_to_page/scroll_to_page_widget.dart'
+    show ScrollToPageWidget;

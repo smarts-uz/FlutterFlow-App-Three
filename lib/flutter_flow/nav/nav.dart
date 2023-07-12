@@ -77,16 +77,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? HomePageWidget()
-          : ClearTextFieldPageWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? HomePageWidget() : ScrollToPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : ClearTextFieldPageWidget(),
+              : ScrollToPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -192,6 +191,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ClearTextFieldPage',
           path: '/clearTextFieldPage',
           builder: (context, params) => ClearTextFieldPageWidget(),
+        ),
+        FFRoute(
+          name: 'ScrollToPage',
+          path: '/scrollToPage',
+          builder: (context, params) => ScrollToPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -359,7 +363,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/clearTextFieldPage';
+            return '/scrollToPage';
           }
           return null;
         },
