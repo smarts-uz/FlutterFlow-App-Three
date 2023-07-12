@@ -55,3 +55,5 @@ export '/actions/u_i_actions/group_chat_page/group_chat_page_widget.dart'
     show GroupChatPageWidget;
 export '/actions/u_i_actions/control_swipeable_page/control_swipeable_page_widget.dart'
     show ControlSwipeablePageWidget;
+export '/actions/u_i_actions/clear_signature/clear_signature_widget.dart'
+    show ClearSignatureWidget;

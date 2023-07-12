@@ -77,16 +77,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? HomePageWidget()
-          : ControlSwipeablePageWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? HomePageWidget() : ClearSignatureWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : ControlSwipeablePageWidget(),
+              : ClearSignatureWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -232,6 +231,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ControlSwipeablePage',
           path: '/controlSwipeablePage',
           builder: (context, params) => ControlSwipeablePageWidget(),
+        ),
+        FFRoute(
+          name: 'ClearSignature',
+          path: '/clearSignature',
+          builder: (context, params) => ClearSignatureWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -399,7 +403,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/controlSwipeablePage';
+            return '/clearSignature';
           }
           return null;
         },
