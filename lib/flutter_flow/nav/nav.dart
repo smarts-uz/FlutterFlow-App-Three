@@ -77,15 +77,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : LaunchMapPageWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? HomePageWidget()
+          : ClearSelectAllPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : LaunchMapPageWidget(),
+              : ClearSelectAllPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -206,6 +207,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'LaunchMapPage',
           path: '/launchMapPage',
           builder: (context, params) => LaunchMapPageWidget(),
+        ),
+        FFRoute(
+          name: 'ClearSelectAllPage',
+          path: '/clearSelectAllPage',
+          builder: (context, params) => ClearSelectAllPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -373,7 +379,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/launchMapPage';
+            return '/clearSelectAllPage';
           }
           return null;
         },
