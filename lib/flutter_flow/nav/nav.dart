@@ -77,15 +77,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : DatePickerPageWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? HomePageWidget()
+          : ColorPickerPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : DatePickerPageWidget(),
+              : ColorPickerPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -176,6 +177,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MainUIActions',
           path: '/mainUIActions',
           builder: (context, params) => MainUIActionsWidget(),
+        ),
+        FFRoute(
+          name: 'ColorPickerPage',
+          path: '/colorPickerPage',
+          builder: (context, params) => ColorPickerPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -343,7 +349,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/datePickerPage';
+            return '/colorPickerPage';
           }
           return null;
         },

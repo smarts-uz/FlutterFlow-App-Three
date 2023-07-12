@@ -33,3 +33,5 @@ export '/actions/u_i_actions/date_picker_page/date_picker_page_widget.dart'
     show DatePickerPageWidget;
 export '/actions/u_i_actions/main_u_i_actions/main_u_i_actions_widget.dart'
     show MainUIActionsWidget;
+export '/actions/u_i_actions/color_picker_page/color_picker_page_widget.dart'
+    show ColorPickerPageWidget;
