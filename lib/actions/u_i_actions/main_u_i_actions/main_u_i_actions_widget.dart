@@ -237,9 +237,9 @@ class _MainUIActionsWidgetState extends State<MainUIActionsWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('ClearTextFieldPage');
+                          context.pushNamed('ScanQRPage');
                         },
-                        text: 'ClearTextField',
+                        text: 'ScanQRcode',
                         options: FFButtonOptions(
                           width: 150.0,
                           height: 40.0,
