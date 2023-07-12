@@ -79,14 +79,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? HomePageWidget()
-          : ValidateFormPageWidget(),
+          : ClearTextFieldPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : ValidateFormPageWidget(),
+              : ClearTextFieldPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -187,6 +187,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ValidateFormPage',
           path: '/validateFormPage',
           builder: (context, params) => ValidateFormPageWidget(),
+        ),
+        FFRoute(
+          name: 'ClearTextFieldPage',
+          path: '/clearTextFieldPage',
+          builder: (context, params) => ClearTextFieldPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -354,7 +359,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/validateFormPage';
+            return '/clearTextFieldPage';
           }
           return null;
         },

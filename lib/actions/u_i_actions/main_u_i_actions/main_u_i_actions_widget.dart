@@ -176,9 +176,9 @@ class _MainUIActionsWidgetState extends State<MainUIActionsWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('ColorPickerPage');
+                          context.pushNamed('ClearTextFieldPage');
                         },
-                        text: 'ColorPicker',
+                        text: 'ClearTextField',
                         options: FFButtonOptions(
                           width: 150.0,
                           height: 40.0,
