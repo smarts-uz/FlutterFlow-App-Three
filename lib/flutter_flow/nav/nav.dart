@@ -77,16 +77,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? HomePageWidget()
-          : ClearSelectAllPageWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? HomePageWidget() : TimerPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? HomePageWidget()
-              : ClearSelectAllPageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? HomePageWidget() : TimerPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -212,6 +210,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ClearSelectAllPage',
           path: '/clearSelectAllPage',
           builder: (context, params) => ClearSelectAllPageWidget(),
+        ),
+        FFRoute(
+          name: 'TimerPage',
+          path: '/timerPage',
+          builder: (context, params) => TimerPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -379,7 +382,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/clearSelectAllPage';
+            return '/timerPage';
           }
           return null;
         },

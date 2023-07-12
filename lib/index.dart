@@ -47,3 +47,5 @@ export '/actions/u_i_actions/launch_map_page/launch_map_page_widget.dart'
     show LaunchMapPageWidget;
 export '/actions/u_i_actions/clear_select_all_page/clear_select_all_page_widget.dart'
     show ClearSelectAllPageWidget;
+export '/actions/u_i_actions/timer_page/timer_page_widget.dart'
+    show TimerPageWidget;
