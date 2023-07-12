@@ -35,3 +35,5 @@ export '/actions/u_i_actions/main_u_i_actions/main_u_i_actions_widget.dart'
     show MainUIActionsWidget;
 export '/actions/u_i_actions/color_picker_page/color_picker_page_widget.dart'
     show ColorPickerPageWidget;
+export '/actions/u_i_actions/validate_form_page/validate_form_page_widget.dart'
+    show ValidateFormPageWidget;

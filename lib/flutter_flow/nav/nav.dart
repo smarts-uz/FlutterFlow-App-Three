@@ -79,14 +79,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? HomePageWidget()
-          : ColorPickerPageWidget(),
+          : ValidateFormPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : ColorPickerPageWidget(),
+              : ValidateFormPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -182,6 +182,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ColorPickerPage',
           path: '/colorPickerPage',
           builder: (context, params) => ColorPickerPageWidget(),
+        ),
+        FFRoute(
+          name: 'ValidateFormPage',
+          path: '/validateFormPage',
+          builder: (context, params) => ValidateFormPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -349,7 +354,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/colorPickerPage';
+            return '/validateFormPage';
           }
           return null;
         },
