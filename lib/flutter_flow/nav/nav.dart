@@ -79,14 +79,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? HomePageWidget()
-          : ExpandImagePageWidget(),
+          : ControlSwipeablePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? HomePageWidget()
-              : ExpandImagePageWidget(),
+              : ControlSwipeablePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -222,6 +222,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ExpandImagePage',
           path: '/expandImagePage',
           builder: (context, params) => ExpandImagePageWidget(),
+        ),
+        FFRoute(
+          name: 'GroupChatPage',
+          path: '/groupChatPage',
+          builder: (context, params) => GroupChatPageWidget(),
+        ),
+        FFRoute(
+          name: 'ControlSwipeablePage',
+          path: '/controlSwipeablePage',
+          builder: (context, params) => ControlSwipeablePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -389,7 +399,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/expandImagePage';
+            return '/controlSwipeablePage';
           }
           return null;
         },
