@@ -78,13 +78,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : ScanQRPageWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : LaunchMapPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : ScanQRPageWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? HomePageWidget()
+              : LaunchMapPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -200,6 +201,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ScanQRPage',
           path: '/scanQRPage',
           builder: (context, params) => ScanQRPageWidget(),
+        ),
+        FFRoute(
+          name: 'LaunchMapPage',
+          path: '/launchMapPage',
+          builder: (context, params) => LaunchMapPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -367,7 +373,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/scanQRPage';
+            return '/launchMapPage';
           }
           return null;
         },

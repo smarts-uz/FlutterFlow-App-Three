@@ -43,3 +43,5 @@ export '/actions/u_i_actions/scroll_to_page/scroll_to_page_widget.dart'
     show ScrollToPageWidget;
 export '/actions/u_i_actions/scan_q_r_page/scan_q_r_page_widget.dart'
     show ScanQRPageWidget;
+export '/actions/u_i_actions/launch_map_page/launch_map_page_widget.dart'
+    show LaunchMapPageWidget;
