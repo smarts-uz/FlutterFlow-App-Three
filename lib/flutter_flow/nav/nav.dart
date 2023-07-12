@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow_theme.dart';
 import '/backend/backend.dart';
 
+import '/backend/supabase/supabase.dart';
 import '../../auth/base_auth_user_provider.dart';
 
 import '../../index.dart';
@@ -78,14 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : ClearSignatureWidget(),
+          appStateNotifier.loggedIn ? SharePageWidget() : HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? HomePageWidget()
-              : ClearSignatureWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? SharePageWidget() : HomePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -403,7 +403,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/clearSignature';
+            return '/homePage';
           }
           return null;
         },
