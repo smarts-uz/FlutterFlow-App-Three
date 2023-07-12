@@ -49,3 +49,5 @@ export '/actions/u_i_actions/clear_select_all_page/clear_select_all_page_widget.
     show ClearSelectAllPageWidget;
 export '/actions/u_i_actions/timer_page/timer_page_widget.dart'
     show TimerPageWidget;
+export '/actions/u_i_actions/expand_image_page/expand_image_page_widget.dart'
+    show ExpandImagePageWidget;
