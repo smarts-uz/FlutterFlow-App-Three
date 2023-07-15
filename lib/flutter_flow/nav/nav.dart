@@ -293,6 +293,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GoogleMapPage',
           path: '/googleMapPage',
           builder: (context, params) => GoogleMapPageWidget(),
+        ),
+        FFRoute(
+          name: 'StaticMapPage',
+          path: '/staticMapPage',
+          builder: (context, params) => StaticMapPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

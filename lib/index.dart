@@ -75,3 +75,5 @@ export '/chat_app/invite_user_page/invite_user_page_widget.dart'
 export '/chat_app/chat_page/chat_page_widget.dart' show ChatPageWidget;
 export '/pages/google_map_page/google_map_page_widget.dart'
     show GoogleMapPageWidget;
+export '/pages/static_map_page/static_map_page_widget.dart'
+    show StaticMapPageWidget;
