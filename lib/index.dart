@@ -57,3 +57,21 @@ export '/actions/u_i_actions/control_swipeable_page/control_swipeable_page_widge
     show ControlSwipeablePageWidget;
 export '/actions/u_i_actions/clear_signature/clear_signature_widget.dart'
     show ClearSignatureWidget;
+export '/pages/register_page/register_page_widget.dart' show RegisterPageWidget;
+export '/pages/forgot_password_page/forgot_password_page_widget.dart'
+    show ForgotPasswordPageWidget;
+export '/rest_a_p_i/passanger_login_page/passanger_login_page_widget.dart'
+    show PassangerLoginPageWidget;
+export '/rest_a_p_i/passanger_home_page/passanger_home_page_widget.dart'
+    show PassangerHomePageWidget;
+export '/rest_a_p_i/passanger_details_page/passanger_details_page_widget.dart'
+    show PassangerDetailsPageWidget;
+export '/rest_a_p_i/passanger_update_page/passanger_update_page_widget.dart'
+    show PassangerUpdatePageWidget;
+export '/chat_app/all_chat_page/all_chat_page_widget.dart'
+    show AllChatPageWidget;
+export '/chat_app/invite_user_page/invite_user_page_widget.dart'
+    show InviteUserPageWidget;
+export '/chat_app/chat_page/chat_page_widget.dart' show ChatPageWidget;
+export '/pages/google_map_page/google_map_page_widget.dart'
+    show GoogleMapPageWidget;

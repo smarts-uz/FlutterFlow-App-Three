@@ -79,13 +79,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? SharePageWidget() : HomePageWidget(),
+          appStateNotifier.loggedIn ? HomePageWidget() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? SharePageWidget() : HomePageWidget(),
+              appStateNotifier.loggedIn ? HomePageWidget() : LoginPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
@@ -236,6 +236,63 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ClearSignature',
           path: '/clearSignature',
           builder: (context, params) => ClearSignatureWidget(),
+        ),
+        FFRoute(
+          name: 'RegisterPage',
+          path: '/registerPage',
+          builder: (context, params) => RegisterPageWidget(),
+        ),
+        FFRoute(
+          name: 'ForgotPasswordPage',
+          path: '/forgotPasswordPage',
+          builder: (context, params) => ForgotPasswordPageWidget(),
+        ),
+        FFRoute(
+          name: 'PassangerLoginPage',
+          path: '/passangerLoginPage',
+          builder: (context, params) => PassangerLoginPageWidget(),
+        ),
+        FFRoute(
+          name: 'PassangerHomePage',
+          path: '/passangerHomePage',
+          builder: (context, params) => PassangerHomePageWidget(),
+        ),
+        FFRoute(
+          name: 'PassangerDetailsPage',
+          path: '/passangerDetailsPage',
+          builder: (context, params) => PassangerDetailsPageWidget(),
+        ),
+        FFRoute(
+          name: 'PassangerUpdatePage',
+          path: '/passangerUpdatePage',
+          builder: (context, params) => PassangerUpdatePageWidget(),
+        ),
+        FFRoute(
+          name: 'AllChatPage',
+          path: '/allChatPage',
+          builder: (context, params) => AllChatPageWidget(),
+        ),
+        FFRoute(
+          name: 'InviteUserPage',
+          path: '/inviteUserPage',
+          builder: (context, params) => InviteUserPageWidget(),
+        ),
+        FFRoute(
+          name: 'ChatPage',
+          path: '/chatPage',
+          asyncParams: {
+            'chatUser': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => ChatPageWidget(
+            chatUser: params.getParam('chatUser', ParamType.Document),
+            chatRef: params.getParam(
+                'chatRef', ParamType.DocumentReference, false, ['chats']),
+          ),
+        ),
+        FFRoute(
+          name: 'GoogleMapPage',
+          path: '/googleMapPage',
+          builder: (context, params) => GoogleMapPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -403,7 +460,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/homePage';
+            return '/loginPage';
           }
           return null;
         },
@@ -421,7 +478,9 @@ class FFRoute {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primary,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
+                      ),
                     ),
                   ),
                 )

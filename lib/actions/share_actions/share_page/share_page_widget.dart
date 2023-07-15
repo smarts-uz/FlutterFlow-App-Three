@@ -181,13 +181,13 @@ class _SharePageWidgetState extends State<SharePageWidget> {
                     onPressed: () async {
                       if (isiOS) {
                         await launchUrl(Uri.parse(
-                            "sms:'+998901342660'&body=${Uri.encodeComponent('Hi, are u developer.')}"));
+                            "sms:${'+998901342660'}&body=${Uri.encodeComponent('Hi, are u developer.')}"));
                       } else {
                         await launchUrl(Uri(
                           scheme: 'sms',
                           path: '+998901342660',
                           queryParameters: <String, String>{
-                            'body': Uri.encodeComponent('Hi, are u developer.'),
+                            'body': 'Hi, are u developer.',
                           },
                         ));
                       }

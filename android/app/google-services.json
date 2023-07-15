@@ -1,37 +1,45 @@
 {
   "project_info": {
-    "project_number": "166168846059",
-    "project_id": "jhvhmgcvhcvhm",
-    "storage_bucket": "jhvhmgcvhcvhm.appspot.com"
+    "project_number": "730009576757",
+    "project_id": "flutterflowtesting-5ce1e",
+    "storage_bucket": "flutterflowtesting-5ce1e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:166168846059:android:b887349ca2b550e8c1a8ae",
+        "mobilesdk_app_id": "1:730009576757:android:e6716a6f716d04a56ad87c",
         "android_client_info": {
           "package_name": "com.mycompany.flutterflowappthree"
         }
       },
       "oauth_client": [
         {
-          "client_id": "166168846059-b9v4el1hl8j1mju3p9n8knu2ee9rl3ms.apps.googleusercontent.com",
+          "client_id": "730009576757-f59ns5l5hn39l9hceu91cjkr0ut7jdsf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.flutterflowappthree",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "730009576757-3cn31rv3isl8tfnu37e0pf94qi8idagj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCFdih7mmlCj5QiUhEMFlwPEvONwK031X0"
+          "current_key": "AIzaSyBpmylTgBNx_9wZJn91M5y0gV-0qmMyKac"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "166168846059-b9v4el1hl8j1mju3p9n8knu2ee9rl3ms.apps.googleusercontent.com",
+              "client_id": "730009576757-3cn31rv3isl8tfnu37e0pf94qi8idagj.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "166168846059-am3cvuvm1sdt34aj9s5b31ghqunuticn.apps.googleusercontent.com",
+              "client_id": "730009576757-kfraocr9e4m6nd5vjhj0bffg8n06ogpf.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.mycompany.flutterflowappthree"
